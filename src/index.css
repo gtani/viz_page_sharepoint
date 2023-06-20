@@ -1,0 +1,259 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto+Mono|Work+Sans:400,600,700&display=swap");
+
+:root {
+  --rt-color-white: #fff;
+  --rt-color-dark: #fff;
+  --rt-color-success: #8dc572;
+  --rt-color-error: #be6464;
+  --rt-color-warning: #f0ad4e;
+  --rt-color-info: #337ab7;
+  --rt-opacity: 1;
+}
+
+
+body {
+  margin: 0;
+  font-family: 'Work Sans', 'Roboto Mono', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F9FDFE;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.analytical-brief p sup {
+  line-height: inherit !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.infolink:before {
+  content: '?';
+  display: inline-block;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: center;
+  width: 1.8ex;
+  height: 1.8ex;
+  font-size: 1.4ex;
+  line-height: 1.8ex;
+  border-radius: 1.2ex;
+  margin-right: 4px;
+  padding: 1px;
+  color: blue;
+  background: white;
+  border: 1px solid blue;
+  text-decoration: none;
+}
+
+.infolink:hover:before {
+  color: white;
+  background: blue;
+  border-color: white;
+  text-decoration: none;
+}
+
+.tooltip {
+  filter: drop-shadow(0px 2px 1px rgba(20, 72, 110, 0.2));
+}
+
+.tooltip a {
+  color: #14486E;
+  text-decoration: underline;
+}
+
+p a,
+.analytical-brief a {
+  color: #14486E !important;
+  text-decoration: underline !important;
+}
+
+header p a {
+  color: #95d6ec !important;
+  text-decoration: underline !important;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page-header {
+  background: rgb(28, 176, 236);
+  background: linear-gradient(180deg, rgba(28, 176, 236, 1) 0%, rgba(14, 59, 92, 1) 100%);
+}
+
+.plot-row:nth-of-type(odd) .plot-row-content {
+  background-color: #F6F2F2;
+
+}
+
+.country-map svg {
+  transition: filter 0.2s 0s ease;
+}
+
+.country-map svg path[fill] {
+  transition: fill 0.2s 0s ease;
+}
+
+.country-map:hover svg {
+  filter: drop-shadow(0px 6px 2px rgba(20, 72, 110, 0.3));
+}
+
+.country-map.active svg {
+  filter: drop-shadow(0px 6px 2px rgba(20, 72, 110, 0.3));
+}
+
+.country-map.active svg path[fill] {
+  fill: #14486E;
+
+}
+
+svg {
+  display: inherit;
+}
+
+.js-plotly-plot .plotly .modebar-group {
+  padding-left: 0px !important;
+
+}
+
+
+.analytical-brief {
+  counter-reset: footnotes;
+}
+
+.analytical-brief a[aria-describedby="footnote-label"] {
+  text-decoration: none !important;
+  color: inherit !important;
+}
+
+[aria-describedby="footnote-label"] {
+  counter-increment: footnotes;
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: default;
+  outline: none;
+
+}
+
+[aria-describedby="footnote-label"]::after {
+  content: '[' counter(footnotes) ']';
+  vertical-align: super;
+  font-size: 0.7em;
+  margin-left: 2px;
+  color: #14486E;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[aria-describedby="footnote-label"]:focus::after {
+  outline: thin dotted;
+  outline-offset: 2px;
+}
+
+[aria-label="Back to content"] {
+  font-size: 0.8em;
+}
+
+footer a {
+  color: #14486E;
+  text-decoration: underline;
+
+}
+
+footer a.backlink {
+  text-decoration: none;
+
+}
+
+footer a {
+  color: #14486E;
+}
+
+.analytical-brief p {
+  margin-bottom: .75rem;
+}
+
+.page-header p {
+  margin-bottom: .75rem;
+}
+
+.analytical-brief section:nth-of-type(odd) {
+  background-color: #F6F2F2;
+
+}
+
+
+.spinner {
+  -webkit-animation: rotate 2s linear infinite;
+  animation: rotate 2s linear infinite;
+  z-index: 2;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -25px 0 0 -25px;
+  width: 50px;
+  height: 50px;
+}
+
+.spinner .path {
+  stroke: #A3BEFF;
+  stroke-linecap: round;
+  -webkit-animation: dash 1.5s ease-in-out infinite;
+  animation: dash 1.5s ease-in-out infinite;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
+
+@keyframes dash {
+  0% {
+    stroke-dasharray: 1, 150;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -35;
+  }
+
+  100% {
+    stroke-dasharray: 90, 150;
+    stroke-dashoffset: -124;
+  }
+}
